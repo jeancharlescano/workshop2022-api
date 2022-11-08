@@ -1,7 +1,6 @@
 import pkg from "pg";
 const { Pool } = pkg;
 
-//connexion a la bdd local
 export const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,

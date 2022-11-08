@@ -2,12 +2,12 @@ import { pool } from "../config/database.config.js";
 pool.connect;
 
 export const createData = async (req, _rep) => {
-  const { name, description, nbWatt, locationName } = req.body;
+  const { name, description, nbWatt, locationName, type } = req.body;
 
   try {
     await pool.query(
-      `INSERT INTO data (name, description, nb_watt, location_name) VALUES ($1, $2, $3, $4)`,
-      [name, description, nbWatt, locationName]
+      `INSERT INTO data (name, description, nb_watt, location_name, type) VALUES ($1, $2, $3, $4, $5)`,
+      [name, description, nbWatt, locationName, type]
     );
     const result = "inserted";
     return result;
