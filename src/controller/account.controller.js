@@ -2,7 +2,7 @@ import { pool } from "../config/database.config.js";
 pool.connect;
 
 export const createAccount = async (req, _rep) => {
-  const { email, password, number } = req.body;
+  const { email, password, number } = JSON.parse(req.body);
 
   try {
     await pool.query(

@@ -2,7 +2,9 @@ import { pool } from "../config/database.config.js";
 pool.connect;
 
 export const createData = async (req, _rep) => {
-  const { name, description, nbWatt, locationName, type } = req.body;
+  const { name, description, nbWatt, locationName, type } = JSON.parse(
+    req.body
+  );
 
   try {
     await pool.query(
